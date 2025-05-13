@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "ES2020",
+  
+      /* 生成声明文件，方便外部引用类型 */
+      "declaration": true,
+      "emitDeclarationOnly": false,
+  
+      /* 输出到 dist 目录 */
+      "outDir": "dist",
+      "rootDir": "src",
+  
+      /* 与 CommonJS/npm 生态兼容 */
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+  
+      /* 开启严格模式与大小写一致检查 */
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+  
+      /* 跳过第三方声明检查，提高编译速度 */
+      "skipLibCheck": true
+    },
+    "include": ["src/*.ts"],
+    "exclude": ["node_modules"]
+  }
+  

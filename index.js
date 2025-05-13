@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+const { md2htmltag } = require('../dist/md2html');
 
 // 注册 chat 标签
-hexo.extend.tag.register('chat', function() {
-    return '<div class="chat-bubble">This is to be a chat bubble.</div>';
-});
+hexo.extend.tag.register('chat',   function (args, content) {
+    const md = hexo.render.renderSync({ text: content, engine: 'markdown'});
+    return `${md2htmltag(args)}\n${md}\n</div>`;
+  },
+  { ends: true }
+);
 
 // 确保 styles.css 被引入
 hexo.extend.filter.register('after_render:html', function(str) {

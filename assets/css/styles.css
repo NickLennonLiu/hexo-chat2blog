@@ -1,8 +1,52 @@
-.chat-bubble {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px 0;
-    display: inline-block;
-    max-width: 60%;
-}
+/* =========  generic layout ========= */
+.chat{
+    display:flex;
+    gap:.6rem;
+    margin:1rem 0;
+    font-size:1rem;
+    line-height:1.5;
+  }
+  .chat-user      { justify-content:flex-end; }
+  .chat-assistant { justify-content:flex-start; }
+  
+  /* =========  message bubble ========= */
+  .chat .bubble{
+    max-width:70%;
+    padding:.6rem .9rem;
+    border-radius:.75rem;
+    word-break:break-word;
+  }
+  
+  /* =========  colour schemes ========= */
+  .chat-user .bubble{
+    background:#2b7cff;
+    color:#fff;
+    border-bottom-right-radius:0;
+  }
+  .chat-assistant .bubble{
+    background:#e5e5ea;
+    color:var(--text-color,#303030);
+    border-bottom-left-radius:0;
+  }
+  
+  /* =========  content-type variations ========= */
+  .chat-thoughts .bubble{
+    background:#f2f2f2;
+    font-style:italic;
+    opacity:.85;
+  }
+  .chat-code .bubble{
+    background:#1e1e1e;
+    color:#dcdcdc;
+    font-family:var(--monospace,Consolas,"Courier New",monospace);
+    overflow-x:auto;
+  }
+  .chat-code .bubble pre{ margin:0; }
+  
+  /* =========  dark-mode tweaks ========= */
+  @media (prefers-color-scheme: dark){
+    .chat-assistant .bubble{ background:#404045;color:#ddd; }
+    .chat-user      .bubble{ background:#006fff; }
+    .chat-thoughts  .bubble{ background:#484848;color:#bbb; }
+  }
+  
