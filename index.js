@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { md2htmltag } = require('../dist/md2html');
+const { md2htmltag } = require('./dist/md2html');
 
 // 注册 chat 标签
 hexo.extend.tag.register('chat',   function (args, content) {
