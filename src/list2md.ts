@@ -42,6 +42,10 @@ import {
       } else {
         return false; // 其他类型丢弃
       }
+
+      // Temporary: remove all tool messages
+      if (m.author.role === "tool") return false;
+      if (m.recipient === "web.run") return false;
   
       // (3) 角色限制
       return ["user", "assistant", "tool"].includes(m.author.role);
@@ -163,7 +167,7 @@ import {
       
     }
 
-    console.log(`Rendering: ${msg.id.slice(0, 5)}` )
+    // console.log(`Rendering: ${msg.id.slice(0, 5)}` )
   
     const head = `{% chat ${p.join(" ")} %}`;
     const body = msg.author.role === "tool" 
@@ -245,7 +249,7 @@ import {
   
   
   function renderContent(c: Message["content"]): string {
-    console.log(`Rendering: ${c.content_type}` )
+    // console.log(`Rendering: ${c.content_type}` )
     return (CONTENT_RENDERER[c.content_type] ?? renderUnknown)(c as any);
   }
   

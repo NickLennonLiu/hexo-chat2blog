@@ -39,6 +39,7 @@
     background: #f2f2f2;       /* 思考：浅灰背景、斜体 */
     font-style: italic;
     opacity: .85;
+    border-bottom-left-radius: .75rem;
   }
   
   .chat-tool  {

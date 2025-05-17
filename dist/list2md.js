@@ -35,6 +35,11 @@ export function cleanMessages(list) {
         else {
             return false; // 其他类型丢弃
         }
+        // Temporary: remove all tool messages
+        if (m.author.role === "tool")
+            return false;
+        if (m.recipient === "web.run")
+            return false;
         // (3) 角色限制
         return ["user", "assistant", "tool"].includes(m.author.role);
     });
