@@ -62,6 +62,7 @@ export interface Conversation {
     | UserEditableContextContent
     | ModelEditableContextContent
     | ReasoningRecapContent
+    | CallContent
     | UnknownContent;
   
   interface BaseContent {
@@ -81,6 +82,12 @@ export interface Conversation {
     language: string;              // "typescript" | "python" | "unknown" …
     text: string;
     response_format_name?: string | null;
+  }
+
+  export interface CallContent extends BaseContent {
+    content_type: "call";
+    language: string;
+    text: string;
   }
   
   /** 思考链 / 内部推理（示例节点 id b42d…）:contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5} */

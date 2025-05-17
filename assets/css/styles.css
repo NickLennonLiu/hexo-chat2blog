@@ -42,7 +42,12 @@
   }
   
   .chat-tool  {
-    background: #ffe3b3;       /* Tool 使用：淡橙背景、左侧强调条 */
+    background: #ffe3b3;       /* Tool 返回：淡橙背景、左侧强调条 */
+    border-left: 4px solid #ff9900;
+  }
+
+  .chat-call {
+    background: #f2f2f2;       /* 调用：浅灰背景、左侧强调条 */
     border-left: 4px solid #ff9900;
   }
   
